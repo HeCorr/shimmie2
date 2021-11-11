@@ -13,7 +13,7 @@ class LogNet extends Extension
             if ($this->count < 10) {
                 // TODO: colour based on event->priority
                 $username = ($user && $user->name) ? $user->name : "Anonymous";
-                $str = sprintf("%-15s %-10s: %s", $_SERVER['REMOTE_ADDR'], $username, $event->message);
+                $str = sprintf("%-15s %-10s: [%s] %s", $_SERVER['REMOTE_ADDR'], $username, $event->section, $event->message);
                 $this->msg($str);
             } elseif ($this->count == 10) {
                 $this->msg('suppressing flood, check the web log');
